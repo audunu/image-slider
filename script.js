@@ -100,4 +100,4 @@ function showFirstImage() {
     document.querySelector('.image-container:first-of-type').classList.toggle('visible');
 }
 
-showFirstImage();
+//showFirstImage();
