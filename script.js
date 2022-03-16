@@ -2,6 +2,8 @@ const imageContainers = document.querySelectorAll('.image-container');
 const previousButton = document.querySelector('.previous');
 const nextButton = document.querySelector('.next');
 const dots = document.querySelectorAll('.dot');
+let imageCounter = 0;
+
 
 function makeAllImagesInvisible() {
     imageContainers.forEach(imageContainer => {
@@ -15,6 +17,7 @@ function makeAllDotsInactive() {
     })
 }
 
+//add eventlisteners on dots
 
 dots.forEach((dot, index) => {
     dot.addEventListener('click', (e) => {
@@ -27,7 +30,7 @@ dots.forEach((dot, index) => {
 })
 
 
-let imageCounter = 0;
+//add eventlisteners on next button
 
 nextButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -47,6 +50,8 @@ nextButton.addEventListener('click', (e) => {
     dots[imageCounter].classList.add('active');
 });
 
+
+//add eventlisteners on previous button
 
 previousButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -68,22 +73,20 @@ previousButton.addEventListener('click', (e) => {
     
 });
 
-function showFirstImage() {
+/* function showFirstImage() {
         document.querySelector('.image-container:first-of-type').classList.toggle('visible');
         dots[imageCounter].classList.add('active');
-    }
+    } */
 
-showFirstImage();
+//showFirstImage();
 
-let indexValue = 0;
+
+//add automatic slideshow functionality
+
 function slideShow() {
     setTimeout(slideShow, 5000);
     makeAllImagesInvisible();
     makeAllDotsInactive();
-    /* indexValue++;
-    if (indexValue > imageContainers.length) { indexValue = 1 }
-    imageContainers[indexValue - 1].classList.add('visible');
-    dots[indexValue - 1].classList.add('active'); */
     imageCounter++;
     if (imageCounter > imageContainers.length) { imageCounter = 1 }
     imageContainers[imageCounter - 1].classList.add('visible');
