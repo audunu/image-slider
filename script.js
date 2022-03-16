@@ -77,14 +77,16 @@ showFirstImage();
 
 let indexValue = 0;
 function slideShow() {
-    setTimeout(slideShow, 2500);
-    for (let i = 0; i < imageContainers.length; i++) {
-        imageContainers[i].classList.remove('visible');
-        dots[i].classList.remove('active')
-    }
-    indexValue++;
+    setTimeout(slideShow, 5000);
+    makeAllImagesInvisible();
+    makeAllDotsInactive();
+    /* indexValue++;
     if (indexValue > imageContainers.length) { indexValue = 1 }
     imageContainers[indexValue - 1].classList.add('visible');
-    dots[indexValue - 1].classList.add('active');
+    dots[indexValue - 1].classList.add('active'); */
+    imageCounter++;
+    if (imageCounter > imageContainers.length) { imageCounter = 1 }
+    imageContainers[imageCounter - 1].classList.add('visible');
+    dots[imageCounter - 1].classList.add('active'); 
 }
-//slideShow();
+slideShow();
