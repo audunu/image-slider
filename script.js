@@ -3,28 +3,6 @@ const previousButton = document.querySelector('.previous');
 const nextButton = document.querySelector('.next');
 const dots = document.querySelectorAll('.dot');
 
-
-/* previousButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (imageContainers[0].classList.contains('visible')) {
-        imageContainers[0].classList.toggle('visible');
-        imageContainers[3].classList.toggle('visible');
-    }
-    else if (imageContainers[1].classList.contains('visible')) {
-        imageContainers[1].classList.toggle('visible');
-        imageContainers[0].classList.toggle('visible');
-    }
-    else if (imageContainers[2].classList.contains('visible')) {
-        imageContainers[2].classList.toggle('visible');
-        imageContainers[1].classList.toggle('visible');
-    }
-    else if (imageContainers[3].classList.contains('visible')) {
-        imageContainers[3].classList.toggle('visible');
-        imageContainers[2].classList.toggle('visible');
-    }
-});
- */
-
 function makeAllImagesInvisible() {
     imageContainers.forEach(imageContainer => {
         imageContainer.classList.remove('visible');
@@ -48,19 +26,6 @@ dots.forEach((dot, index) => {
     })
 })
 
-let indexValue = 0;
-function slideShow() {
-    setTimeout(slideShow, 2500);
-    for (let i = 0; i < imageContainers.length; i++) {
-        imageContainers[i].classList.remove('visible');
-        dots[i].classList.remove('active')
-    }
-    indexValue++;
-    if (indexValue > imageContainers.length) { indexValue = 1 }
-    imageContainers[indexValue - 1].classList.add('visible');
-    dots[indexValue - 1].classList.add('active');
-}
-//slideShow();
 
 let imageCounter = 0;
 
@@ -109,3 +74,17 @@ function showFirstImage() {
     }
 
 showFirstImage();
+
+let indexValue = 0;
+function slideShow() {
+    setTimeout(slideShow, 2500);
+    for (let i = 0; i < imageContainers.length; i++) {
+        imageContainers[i].classList.remove('visible');
+        dots[i].classList.remove('active')
+    }
+    indexValue++;
+    if (indexValue > imageContainers.length) { indexValue = 1 }
+    imageContainers[indexValue - 1].classList.add('visible');
+    dots[indexValue - 1].classList.add('active');
+}
+//slideShow();
